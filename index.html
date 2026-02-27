@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -440,6 +441,226 @@
             margin: 0 auto;
         }
 
+        /* ===== LIVE DEMO ===== */
+        .demo {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 80px 32px 100px;
+        }
+        .demo-window {
+            margin-top: 56px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03);
+        }
+        .demo-titlebar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 18px;
+            background: var(--surface-2);
+            border-bottom: 1px solid var(--border);
+        }
+        .demo-titlebar span {
+            width: 12px; height: 12px; border-radius: 50%;
+        }
+        .demo-titlebar .d-red { background: #ef4444; }
+        .demo-titlebar .d-yel { background: #f59e0b; }
+        .demo-titlebar .d-grn { background: #22c55e; }
+        .demo-titlebar .d-title {
+            width: auto; height: auto; background: none;
+            font-size: 13px; font-weight: 600;
+            color: var(--text-dim); margin-left: 8px;
+        }
+        .demo-body {
+            padding: 28px 32px 32px;
+        }
+        .demo-controls {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .demo-path {
+            flex: 1;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text-dim);
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 13px;
+        }
+        .demo-btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .demo-btn:active { transform: scale(0.97); }
+        .demo-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .demo-btn-scan {
+            background: var(--accent);
+            color: #fff;
+        }
+        .demo-btn-scan:hover:not(:disabled) { background: var(--accent-light); }
+        .demo-btn-organize {
+            background: var(--green);
+            color: #000;
+        }
+        .demo-btn-organize:hover:not(:disabled) { background: #4ade80; }
+        .demo-btn-reset {
+            background: transparent;
+            color: var(--text-dim);
+            border: 1px solid var(--border);
+            padding: 12px 18px;
+        }
+        .demo-btn-reset:hover:not(:disabled) { color: var(--text); border-color: var(--text-dim); }
+
+        .demo-stats {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+            min-height: 28px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .demo-chip {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .demo-chip-files {
+            background: rgba(99,102,241,0.1);
+            color: var(--accent-light);
+            border: 1px solid rgba(99,102,241,0.15);
+        }
+        .demo-chip-cats {
+            background: rgba(34,197,94,0.1);
+            color: var(--green);
+            border: 1px solid rgba(34,197,94,0.15);
+        }
+
+        .demo-table-wrap {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .demo-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .demo-table thead th {
+            text-align: left;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 11px 16px;
+            background: var(--surface-2);
+            border-bottom: 1px solid var(--border);
+        }
+        .demo-table tbody tr {
+            border-bottom: 1px solid #1f1f23;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: all 0.3s ease;
+        }
+        .demo-table tbody tr.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .demo-table tbody tr.organized {
+            opacity: 0.4;
+            transform: translateX(20px);
+        }
+        .demo-table tbody tr:last-child { border-bottom: none; }
+        .demo-table td {
+            padding: 10px 16px;
+            font-size: 13px;
+        }
+        .demo-table .d-name { color: var(--text); font-weight: 500; }
+        .demo-table .d-ext { color: var(--text-dim); font-family: monospace; font-size: 12px; }
+        .demo-table .d-dest {
+            font-weight: 600;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .demo-table .d-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .demo-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 220px;
+            gap: 10px;
+            color: var(--text-dim);
+            font-size: 14px;
+        }
+        .demo-placeholder svg { width: 40px; height: 40px; opacity: 0.3; }
+        .demo-placeholder .sub { font-size: 12px; color: #52525b; }
+
+        .demo-success {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 220px;
+            gap: 12px;
+            text-align: center;
+        }
+        .demo-success.show { display: flex; }
+        .demo-success-icon {
+            width: 56px; height: 56px;
+            background: rgba(34,197,94,0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .demo-success-icon svg { width: 28px; height: 28px; color: var(--green); }
+        .demo-success h3 {
+            font-size: 18px; font-weight: 700; color: var(--text);
+        }
+        .demo-success p {
+            font-size: 14px; color: var(--text-muted); max-width: 360px;
+        }
+
+        .demo-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .demo-actions .spacer { flex: 1; }
+
+        @media (max-width: 768px) {
+            .demo-body { padding: 20px 16px 24px; }
+            .demo-controls { flex-direction: column; }
+            .demo-actions { flex-wrap: wrap; }
+        }
+
         /* ===== PRICING ===== */
         .pricing {
             padding: 100px 32px;
@@ -661,7 +882,10 @@
                 </div>
                 <span>DeskOrganizer</span>
             </a>
-            <a href="#pricing" class="nav-cta">Get DeskOrganizer</a>
+            <div style="display:flex;align-items:center;gap:24px;">
+                <a href="#demo" style="color:var(--text-muted);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-muted)'">Try Demo</a>
+                <a href="#pricing" class="nav-cta">Get DeskOrganizer</a>
+            </div>
         </div>
     </nav>
 
@@ -678,7 +902,7 @@
                 Get DeskOrganizer — $39
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
-            <a href="#how" class="btn-hero btn-hero-ghost">See How It Works</a>
+            <a href="#demo" class="btn-hero btn-hero-ghost">Try Live Demo</a>
         </div>
         <p class="hero-note">One-time purchase. Mac & Windows. 30-day money-back guarantee.</p>
 
@@ -835,6 +1059,76 @@
         </div>
     </section>
 
+    <!-- Live Demo -->
+    <section class="demo" id="demo">
+        <div class="section-label">Try It Now</div>
+        <h2 class="section-title">See it in action — no download needed</h2>
+        <p class="section-sub">This is a live simulation of the DeskOrganizer experience. Click Scan to see how your files get organized.</p>
+
+        <div class="demo-window">
+            <div class="demo-titlebar">
+                <span class="d-red"></span>
+                <span class="d-yel"></span>
+                <span class="d-grn"></span>
+                <span class="d-title">DeskOrganizer</span>
+            </div>
+            <div class="demo-body">
+                <div class="demo-controls">
+                    <div class="demo-path">~/Desktop</div>
+                    <button class="demo-btn demo-btn-scan" id="demoScanBtn" onclick="demoScan()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        Scan
+                    </button>
+                </div>
+
+                <div class="demo-stats" id="demoStats"></div>
+
+                <div class="demo-table-wrap" id="demoTableWrap" style="display:none;">
+                    <table class="demo-table">
+                        <thead>
+                            <tr>
+                                <th>File</th>
+                                <th>Extension</th>
+                                <th>Destination</th>
+                            </tr>
+                        </thead>
+                        <tbody id="demoTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="demo-placeholder" id="demoPlaceholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/>
+                    </svg>
+                    Click "Scan" to preview how your files get organized
+                    <span class="sub">No files will actually be moved — this is a demo</span>
+                </div>
+
+                <div class="demo-success" id="demoSuccess">
+                    <div class="demo-success-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <h3 id="demoSuccessTitle">14 files organized into 8 folders!</h3>
+                    <p>That's it. Your messy desktop is now clean and structured. In the real app, it works exactly like this — on your actual files.</p>
+                </div>
+
+                <div class="demo-actions" id="demoActions" style="display:none;">
+                    <button class="demo-btn demo-btn-reset" id="demoResetBtn" onclick="demoReset()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                        Reset Demo
+                    </button>
+                    <div class="spacer"></div>
+                    <button class="demo-btn demo-btn-organize" id="demoOrganizeBtn" onclick="demoOrganize()">
+                        Organize Now
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing -->
     <section class="pricing" id="pricing">
         <div class="section-label">Pricing</div>
@@ -927,6 +1221,124 @@
     <footer>
         &copy; 2026 DeskOrganizer. All rights reserved.
     </footer>
+
+    <script>
+        // ===== DEMO =====
+        const DEMO_FILES = [
+            { name: 'CONTRACT FOR DEED AGREEMENT.docx', ext: '.docx', cat: 'Contracts & Agreements', color: '#f59e0b', text: '#fbbf24' },
+            { name: 'Demand letter final.docx', ext: '.docx', cat: 'Legal', color: '#ef4444', text: '#f87171' },
+            { name: 'Q4_receipt_2024.pdf', ext: '.pdf', cat: 'Financial', color: '#22c55e', text: '#4ade80' },
+            { name: 'Prop Ins Removal Add (v6).pdf', ext: '.pdf', cat: 'Insurance', color: '#a78bfa', text: '#c4b5fd' },
+            { name: 'glenoak drive appraisal.PDF', ext: '.PDF', cat: 'Property & Real Estate', color: '#06b6d4', text: '#22d3ee' },
+            { name: 'RPB3.0_Authorization_Form.docx', ext: '.docx', cat: 'Authorization & Forms', color: '#f97316', text: '#fb923c' },
+            { name: 'title_commitment_oak_ridge.pdf', ext: '.pdf', cat: 'Property & Real Estate', color: '#06b6d4', text: '#22d3ee' },
+            { name: 'settlement_statement.xlsx', ext: '.xlsx', cat: 'Financial', color: '#22c55e', text: '#4ade80' },
+            { name: 'NDA_signed_final.pdf', ext: '.pdf', cat: 'Contracts & Agreements', color: '#f59e0b', text: '#fbbf24' },
+            { name: 'liability_waiver.docx', ext: '.docx', cat: 'Legal', color: '#ef4444', text: '#f87171' },
+            { name: 'flood_cert_123_main_st.pdf', ext: '.pdf', cat: 'Insurance', color: '#a78bfa', text: '#c4b5fd' },
+            { name: 'resume_updated_2024.docx', ext: '.docx', cat: 'Resumes & Career', color: '#ec4899', text: '#f472b6' },
+            { name: 'Screenshot 2024-11-15.png', ext: '.png', cat: 'Screenshots', color: '#e879f9', text: '#f0abfc' },
+            { name: 'quarterly_budget.xlsx', ext: '.xlsx', cat: 'Financial', color: '#22c55e', text: '#4ade80' },
+        ];
+
+        let demoState = 'idle'; // idle, scanned, organized
+
+        function demoScan() {
+            if (demoState !== 'idle') return;
+
+            const btn = document.getElementById('demoScanBtn');
+            btn.innerHTML = '<span style="display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,0.2);border-top-color:white;border-radius:50%;animation:spin 0.6s linear infinite;"></span> Scanning...';
+            btn.disabled = true;
+
+            // Hide placeholder, show table
+            document.getElementById('demoPlaceholder').style.display = 'none';
+            document.getElementById('demoTableWrap').style.display = 'block';
+            document.getElementById('demoActions').style.display = 'flex';
+
+            const tbody = document.getElementById('demoTableBody');
+            tbody.innerHTML = '';
+
+            // Build rows (hidden initially)
+            DEMO_FILES.forEach(file => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="d-name">${file.name}</td>
+                    <td class="d-ext">${file.ext}</td>
+                    <td><div class="d-dest" style="color:${file.text}"><span class="d-dot" style="background:${file.color}"></span>${file.cat}</div></td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            // Animate rows in one by one
+            const rows = tbody.querySelectorAll('tr');
+            rows.forEach((row, i) => {
+                setTimeout(() => {
+                    row.classList.add('show');
+                }, i * 80);
+            });
+
+            // Show stats after all rows appear
+            const totalDelay = DEMO_FILES.length * 80 + 200;
+            setTimeout(() => {
+                const cats = [...new Set(DEMO_FILES.map(f => f.cat))];
+                document.getElementById('demoStats').innerHTML = `
+                    <div class="demo-chip demo-chip-files">${DEMO_FILES.length} files found</div>
+                    <div class="demo-chip demo-chip-cats">${cats.length} categories</div>
+                `;
+                btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Scan';
+                btn.disabled = true;
+                demoState = 'scanned';
+            }, totalDelay);
+        }
+
+        function demoOrganize() {
+            if (demoState !== 'scanned') return;
+
+            const btn = document.getElementById('demoOrganizeBtn');
+            btn.innerHTML = '<span style="display:inline-block;width:14px;height:14px;border:2px solid rgba(0,0,0,0.2);border-top-color:black;border-radius:50%;animation:spin 0.6s linear infinite;"></span> Organizing...';
+            btn.disabled = true;
+
+            // Animate rows sliding out
+            const rows = document.getElementById('demoTableBody').querySelectorAll('tr');
+            rows.forEach((row, i) => {
+                setTimeout(() => {
+                    row.classList.add('organized');
+                }, i * 60);
+            });
+
+            // Show success
+            const totalDelay = DEMO_FILES.length * 60 + 400;
+            setTimeout(() => {
+                document.getElementById('demoTableWrap').style.display = 'none';
+                document.getElementById('demoStats').innerHTML = '';
+                const cats = [...new Set(DEMO_FILES.map(f => f.cat))];
+                document.getElementById('demoSuccessTitle').textContent = `${DEMO_FILES.length} files organized into ${cats.length} folders!`;
+                document.getElementById('demoSuccess').classList.add('show');
+                document.getElementById('demoOrganizeBtn').style.display = 'none';
+                demoState = 'organized';
+            }, totalDelay);
+        }
+
+        function demoReset() {
+            demoState = 'idle';
+            document.getElementById('demoTableWrap').style.display = 'none';
+            document.getElementById('demoTableBody').innerHTML = '';
+            document.getElementById('demoStats').innerHTML = '';
+            document.getElementById('demoPlaceholder').style.display = 'flex';
+            document.getElementById('demoSuccess').classList.remove('show');
+            document.getElementById('demoActions').style.display = 'none';
+            document.getElementById('demoOrganizeBtn').style.display = '';
+            document.getElementById('demoOrganizeBtn').innerHTML = 'Organize Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
+            document.getElementById('demoOrganizeBtn').disabled = false;
+            const scanBtn = document.getElementById('demoScanBtn');
+            scanBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Scan';
+            scanBtn.disabled = false;
+        }
+    </script>
+
+    <style>
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
 
 </body>
 </html>
